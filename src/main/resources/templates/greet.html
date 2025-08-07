@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{fragments/layout :: layout(${title}, ~{::content})}">
+<body>
+    <div th:fragment="content">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-success text-white text-center">
+                        <h2 class="card-title mb-0">👋 Personal Greeting</h2>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="mb-4">
+                            <h3 class="text-success" th:text="${greeting}">Greeting</h3>
+                            <p class="text-muted">Hope you're having a great day!</p>
+                        </div>
+                        
+                        <!-- Greeting Form -->
+                        <form method="get" action="/greet" class="mb-4">
+                            <div class="input-group">
+                                <input type="text" 
+                                       class="form-control form-control-lg" 
+                                       name="name" 
+                                       placeholder="Enter your name" 
+                                       th:value="${name != 'World'} ? ${name} : ''"
+                                       required>
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="bi bi-send"></i> Greet Me!
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <!-- Sample Links -->
+                        <div class="d-grid gap-2 d-md-block">
+                            <a href="/greet?name=Alice" class="btn btn-outline-primary">Greet Alice</a>
+                            <a href="/greet?name=Bob" class="btn btn-outline-primary">Greet Bob</a>
+                            <a href="/greet?name=Charlie" class="btn btn-outline-primary">Greet Charlie</a>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <a href="/home" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

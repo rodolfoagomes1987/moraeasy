@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{fragments/layout :: layout(${title}, ~{::content})}">
+<body>
+    <div th:fragment="content">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- Hero Section -->
+                <div class="text-center mb-5">
+                    <h1 class="display-4 fw-bold text-primary" th:text="${title}">Welcome</h1>
+                    <p class="lead" th:text="${message}">Welcome message</p>
+                    <div class="alert alert-info">
+                        <i class="bi bi-clock"></i>
+                        <strong>Current Time:</strong> 
+                        <span th:text="${currentTime}">Current time</span>
+                    </div>
+                </div>
+
+                <!-- Features Card -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">
+                            <i class="bi bi-star-fill"></i> App Features
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex align-items-center" th:each="feature : ${features}">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                <span th:text="${feature}">Feature</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="text-center">
+                    <a href="/about" class="btn btn-outline-primary btn-lg me-3">
+                        <i class="bi bi-info-circle"></i> Learn More
+                    </a>
+                    <a href="/greet?name=Railway" class="btn btn-success btn-lg">
+                        <i class="bi bi-hand-thumbs-up"></i> Get Greeting
+                    </a>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="row mt-5">
+                    <div class="col-md-4">
+                        <div class="card text-center border-primary">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">🚀 Fast</h5>
+                                <p class="card-text">Spring Boot auto-configuration</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center border-success">
+                            <div class="card-body">
+                                <h5 class="card-title text-success">📱 Responsive</h5>
+                                <p class="card-text">Bootstrap CSS framework</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center border-info">
+                            <div class="card-body">
+                                <h5 class="card-title text-info">☁️ Cloud</h5>
+                                <p class="card-text">Deployed on Railway</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

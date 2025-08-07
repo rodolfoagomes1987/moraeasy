@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{fragments/layout :: layout(${title}, ~{::content})}">
+<body>
+    <div th:fragment="content">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow">
+                    <div class="card-header bg-info text-white">
+                        <h2 class="card-title mb-0" th:text="${title}">About</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text lead" th:text="${description}">Description</p>
+                        
+                        <hr>
+                        
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h6 class="fw-bold">Version:</h6>
+                                <p th:text="${version}">Version</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h6 class="fw-bold">Author:</h6>
+                                <p th:text="${author}">Author</p>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-light">
+                            <h6 class="fw-bold">Technology Stack:</h6>
+                            <ul class="mb-0">
+                                <li>Java 17</li>
+                                <li>Spring Boot 3.2.x</li>
+                                <li>Thymeleaf Template Engine</li>
+                                <li>Bootstrap 5.3</li>
+                                <li>Maven Build Tool</li>
+                                <li>Railway Cloud Platform</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <a href="/home" class="btn btn-primary">
+                                <i class="bi bi-house"></i> Back to Home
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

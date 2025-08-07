@@ -9,7 +9,9 @@ public class HelloController {
     
     @GetMapping("/")
     public String hello() {
-        return "Hello World from Spring Boot on Railway! 🚂";
+        return "Hello! Visit <a href='/home'>/home</a> for the web interface or use these API endpoints: <br>" +
+               "• <a href='/api/status'>/api/status</a><br>" + 
+               "• <a href='/api/info'>/api/info</a>";
     }
     
     @GetMapping("/api/status")
@@ -19,6 +21,6 @@ public class HelloController {
     
     @GetMapping("/api/info")
     public String info() {
-        return "Simple Spring Boot app deployed on Railway";
+        return "Simple Spring Boot app with Thymeleaf deployed on Railway";
     }
 }
